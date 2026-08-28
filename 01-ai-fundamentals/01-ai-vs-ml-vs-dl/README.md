@@ -156,9 +156,9 @@ Therefore:
 
 ## 7. Why This Matters for AI Governance
 
-An AI Governance professional does not necessarily need to build these systems.
+As an AI Governance professional, we do not necessarily need to build these systems.
 
-However, they need enough technical understanding to ask the right governance questions.
+However, we need enough technical understanding to ask the right governance questions.
 
 ### Machine Learning System
 
