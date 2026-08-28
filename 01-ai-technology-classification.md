@@ -14,3 +14,15 @@ their primary governance considerations.
 | Customer chatbot | Generative AI | Hallucination |
 | Rules-based loan system | Rule-based AI | Fairness / Transparency |
 | Fraud detection | ML | False positives / Bias |
+
+## Governance Questions
+For each system:
+
+1. What data does it use?
+2. What decisions does it influence?
+3. Who is affected?
+4. What happens if the system is wrong?
+5. Can the decision be explained?
+6. How is performance monitored?
+7. Who is accountable?
+8. What controls are required?
