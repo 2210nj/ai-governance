@@ -31,3 +31,16 @@ The simplest way to understand the relationship is:
 - **Machine Learning (ML)** is a subset of **AI**.
 - **Deep Learning (DL)** is a subset of **Machine Learning**.
 - However, **not every AI system uses Machine Learning**.
+
+
+## Why This Matters for AI Governance
+
+Understanding these distinctions helps us
+identify different sources of risk.
+
+| Technology | Example | Governance Considerations |
+|------------|---------|---------------------------|
+| Rule-based AI | Rules engine | Explainability, rule accuracy |
+| ML | Fraud detection | Bias, data quality, model performance |
+| Deep Learning | Image recognition | Explainability, robustness, data |
+| Generative AI | LLM | Hallucination, privacy, IP, misuse |
