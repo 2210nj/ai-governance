@@ -44,3 +44,15 @@ identify different sources of risk.
 | ML | Fraud detection | Bias, data quality, model performance |
 | Deep Learning | Image recognition | Explainability, robustness, data |
 | Generative AI | LLM | Hallucination, privacy, IP, misuse |
+
+
+## Key Takeaway
+
+AI is the broadest concept.
+
+Machine Learning is a way of building AI systems that learn from data.
+
+Deep Learning is a type of Machine Learning based on neural networks.
+
+For an AI governance professional, understanding the technology is important not because you need to build the models, but because you need to understand the risks associated with how they are built
+and used.
