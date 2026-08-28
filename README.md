@@ -1,5 +1,6 @@
 # ai-governance
 [AI vs ML vs Deep Learning](ai-fundamentals.md)
+[AI Technology classification](01-ai-technology-classification.md)
 
 # AI vs Machine Learning vs Deep Learning
 
