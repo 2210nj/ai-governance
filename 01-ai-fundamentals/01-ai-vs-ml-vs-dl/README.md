@@ -232,6 +232,6 @@ That distinction is central to a non-technical AI Governance career.
 ## Related Portfolio Project
 
 See:
-`AI technology classification`(06-projects/01-ai-technology-classification/README.md)
+[AI technology classification](06-projects/01-ai-technology-classification/README.md)
 
 The project applies the concepts in this document to real-world business use cases and evaluates their governance considerations.
