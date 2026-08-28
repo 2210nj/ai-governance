@@ -13,3 +13,18 @@ This document explains:
 3. Key **differences** between them
 4. **Real-world examples**
 5. Why the distinction **matters for AI Governance**
+
+## 1. The Relationship
+
+The simplest way to understand the relationship is:
+
+**Artificial Intelligence (AI)**  
+└── **Machine Learning (ML)**  
+&emsp;&emsp;└── **Deep Learning (DL)**
+
+### Key Relationship
+
+- **AI** is the broadest concept.
+- **Machine Learning (ML)** is a subset of **AI**.
+- **Deep Learning (DL)** is a subset of **Machine Learning**.
+- However, **not every AI system uses Machine Learning**.
