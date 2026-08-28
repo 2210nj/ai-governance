@@ -1,4 +1,4 @@
-# Project 01 — AI Technology Classification & Governance Assessment
+# Project 01 - AI Technology Classification & Governance Assessment
 
 ## Objective
 
