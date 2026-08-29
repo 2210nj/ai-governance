@@ -37,7 +37,7 @@ Each use case is evaluated against:
 
 ---
 
-# Use Case 1 — Expense Approval
+# Use Case 1 - Expense Approval
 
 ### Technology
 
@@ -64,7 +64,7 @@ Automate low-value expense approvals.
 
 ---
 
-# Use Case 2 — Fraud Detection
+# Use Case 2 - Fraud Detection
 
 ### Technology
 
@@ -93,7 +93,7 @@ Identify potentially fraudulent financial transactions.
 
 ---
 
-# Use Case 3 — Facial Recognition
+# Use Case 3 - Facial Recognition
 
 ### Technology
 
@@ -124,7 +124,7 @@ Identify or verify individuals using facial characteristics.
 
 ---
 
-# Use Case 4 — Customer Support Chatbot
+# Use Case 4 - Customer Support Chatbot
 
 ### Technology
 
@@ -155,7 +155,7 @@ Answer customer questions and assist customer service teams.
 
 ---
 
-# Use Case 5 — Candidate Ranking
+# Use Case 5 - Candidate Ranking
 
 ### Technology
 
