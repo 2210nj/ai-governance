@@ -3,7 +3,6 @@
 
 [AI Technology classification](06-projects/01-ai-technology-classification/README.md)
 
-
-[AI_Governance_to_Engineering_Controls](06-projects/"AI_Governance_to_Engineering_Controls.pptx")
+[AI_Governance_to_Engineering_Controls](06-projects/06-projects/01-ai-technology-classification/AI_Governance_to_Engineering_Controls.pptx)
 
 
