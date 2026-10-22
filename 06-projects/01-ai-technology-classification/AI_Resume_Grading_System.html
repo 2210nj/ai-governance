@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assessing an AI Resume-Grading System: A Governance Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F5;--surface:#FFFFFF;--ink:#14213D;--muted:#4A5873;--accent:#0E7C86;--warn:#B45F06;--line:#CBD5E1;
+  --ring3:#DCE6EF;--ring2:#BFD3E3;--inner:#14213D;--on-inner:#FFFFFF;
+  --head:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1724;--surface:#172236;--ink:#E6ECF5;--muted:#9AA9C2;--accent:#4FC3CC;--warn:#F0A04B;--line:#2B3A55;
+    --ring3:#1E2D47;--ring2:#27406A;--inner:#4FC3CC;--on-inner:#0F1724;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1724;--surface:#172236;--ink:#E6ECF5;--muted:#9AA9C2;--accent:#4FC3CC;--warn:#F0A04B;--line:#2B3A55;
+  --ring3:#1E2D47;--ring2:#27406A;--inner:#4FC3CC;--on-inner:#0F1724;color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.65}
+main{max-width:46rem;margin:0 auto;padding:3rem 1.25rem 4rem}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,6vw,3rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.6rem;font-weight:700;margin:3.2rem 0 .8rem;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700;margin:0 0 .4rem}
+p{margin:0 0 1rem;max-width:40rem}
+.byline{color:var(--muted);font-size:1rem;margin:1rem 0 2rem}
+.prompt{background:var(--surface);border-left:4px solid var(--accent);padding:1.1rem 1.3rem;margin:0 0 2rem;font-style:italic}
+.prompt p{margin:0}
+.summary{font-size:1.2rem}
+ul{padding-left:1.2rem;margin:0 0 1rem;max-width:40rem}
+li{margin-bottom:.4rem}
+.step{display:flex;gap:.8rem;align-items:baseline}
+.step span{font-family:var(--head);color:var(--accent);font-weight:700;font-size:1.6rem}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1rem;margin:1.2rem 0}
+.fig svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.fig figcaption{color:var(--muted);font-size:.95rem;text-align:center;margin-top:.5rem}
+.scroll{overflow-x:auto;margin:1rem 0 1.5rem;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.98rem;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:.7rem .85rem;border-bottom:1px solid var(--line)}
+th{font-family:var(--head);font-size:.95rem}
+tr:last-child td{border-bottom:0}
+.hi{color:var(--warn);font-weight:600}
+.cols{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(13.5rem,1fr));margin:1rem 0 1.5rem}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1rem 1.1rem}
+.col ul{padding-left:1.1rem;margin:0;font-size:.98rem;line-height:1.5}
+.verdict{background:var(--inner);color:var(--on-inner);padding:1.5rem 1.6rem;border-radius:6px;margin:1.5rem 0}
+.verdict h2{margin:0 0 .6rem;font-size:1.3rem;color:inherit}
+.verdict p{margin:0;max-width:none}
+.src{font-size:.92rem;color:var(--muted)}
+.src a{color:var(--accent)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<h1>Assessing an AI resume-grading system</h1>
+<p class="byline">A governance case study by Namita, October 2026</p>
+
+<blockquote class="prompt"><p>“We are deploying an AI system that reviews and grades candidates’ resumes against a job opening. Walk me through how you would assess its impact.”</p></blockquote>
+
+<p class="summary">My approach has four steps: define the system and its legal status, map who it touches, rank the harms, and set safeguards that can be measured. I would run it with HR, legal, privacy, security and data science from the start, because an assessment done by governance alone misses how the tool is actually used.</p>
+
+<h2><span class="step"><span>0</span>Scope and classification</span></h2>
+<p>Before assessing anything, I pin down three facts.</p>
+<ul>
+  <li><strong>Intended use.</strong> Which decision does the score feed into, for which roles and which countries?</li>
+  <li><strong>Our role.</strong> Did we build the system or buy it? This decides who owes which obligations and what evidence we can demand from a vendor.</li>
+  <li><strong>Regulatory tier.</strong> Under Annex III of the EU AI Act, tools that filter applications and evaluate candidates are high-risk. The Digital Omnibus has moved the deadline for those obligations from August 2026 to 2 December 2027. GDPR and anti-discrimination law still apply today, so I would build to the high-risk standard now rather than treat the delay as breathing room.</li>
+</ul>
+
+<h2><span class="step"><span>1</span>Understand the system</span></h2>
+<p>The first question is how much authority the system really has. A tool labelled “advisory” that recruiters follow almost every time is making the decision in practice. The more effective authority it has, the stronger the oversight must be.</p>
+<ul>
+  <li><strong>Behaviour.</strong> Is there an auto-reject threshold? Are candidates ranked, filtered or only flagged?</li>
+  <li><strong>Method.</strong> Is it keyword matching, a trained model or an LLM? What was it trained on, and does that data encode past hiring patterns?</li>
+  <li><strong>Inputs.</strong> Which fields does it read, and could any of them stand in for a protected trait?</li>
+  <li><strong>Evidence.</strong> I would request the documentation, vendor validation reports, earlier risk findings, any bias audits, and a sample of real scored resumes. I would also sit with recruiters and hiring managers to see how scores are used.</li>
+</ul>
+
+<h2><span class="step"><span>2</span>Map the stakeholders</span></h2>
+<p>I think of stakeholders as concentric circles, from the people who operate the tool to the people who hold it accountable.</p>
+<figure class="fig">
+<svg viewBox="0 0 360 360" width="360" height="360" role="img" aria-label="Three concentric circles. Centre: recruiters and hiring managers. Middle ring: applicants. Outer ring: regulators, vendor, auditors, legal and society.">
+  <circle cx="180" cy="180" r="170" fill="var(--ring3)"/>
+  <circle cx="180" cy="180" r="115" fill="var(--ring2)"/>
+  <circle cx="180" cy="180" r="62" fill="var(--inner)"/>
+  <g font-family="Bricolage Grotesque, Arial, sans-serif" font-size="12.5" text-anchor="middle" fill="var(--ink)">
+    <text x="180" y="34">Regulators, vendor,</text>
+    <text x="180" y="50">auditors, legal, society</text>
+    <text x="180" y="88">Applicants</text>
+    <text x="180" y="104">external and internal</text>
+    <text x="180" y="177" fill="var(--on-inner)">Recruiters and</text>
+    <text x="180" y="193" fill="var(--on-inner)">hiring managers</text>
+  </g>
+</svg>
+<figcaption>Operators in the centre, the people affected around them, and oversight on the outside.</figcaption>
+</figure>
+<p>Applicants are the most affected group and have the least visibility and voice. For that reason I would design a way for them to ask for a human review, and I would not rely on recruiters to speak for them.</p>
+
+<h2><span class="step"><span>3</span>Assess risks and severity</span></h2>
+<p>I score each risk on severity, likelihood, reversibility and scale. Automated rejection operates at high volume and is hard to see, so it ranks high even when each single error looks small.</p>
+<div class="scroll" tabindex="0" role="region" aria-label="Risk table, scrolls sideways on small screens">
+<table>
+  <thead><tr><th>Risk</th><th>Why it matters</th><th>How I would test it</th><th>Priority</th></tr></thead>
+  <tbody>
+    <tr><td>Strong candidates wrongly rejected</td><td>The hardest harm to see, because nobody tracks rejected people and no dashboard shows the error.</td><td>Have humans re-grade a random sample of rejected resumes and compare.</td><td class="hi">High</td></tr>
+    <tr><td>Unequal treatment of groups</td><td>Proxies such as career gaps, college tier, names, location, notice period, resume format and writing style can disadvantage some people.</td><td>Compare selection rates and false-negative rates across groups, including proxy-based groupings.</td><td class="hi">High</td></tr>
+    <tr><td>Unqualified candidates passing must-haves</td><td>Wastes recruiter time and erodes trust, but is visible and easy to correct.</td><td>Check passed candidates against the role’s must-have criteria.</td><td>Medium</td></tr>
+    <tr><td>Automation bias</td><td>Recruiters may rubber-stamp scores, making “human in the loop” a label only.</td><td>Measure how often recruiters override the score and whether they open the resume.</td><td class="hi">High</td></tr>
+    <tr><td>Gaming and manipulation</td><td>Keyword stuffing, hidden text or injected instructions can inflate scores.</td><td>Adversarial testing before launch and on a schedule after.</td><td>Medium</td></tr>
+    <tr><td>Privacy and data handling</td><td>Resumes hold personal data, sometimes sensitive, and retention can drift.</td><td>Review data flows, retention periods and vendor access with the privacy team.</td><td>Medium</td></tr>
+    <tr><td>Drift over time</td><td>Roles and applicant pools change, so a validated model degrades.</td><td>Track score distributions and error rates monthly against the baseline.</td><td>Medium</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="step"><span>4</span>Recommend safeguards</span></h2>
+<div class="cols">
+  <div class="col"><h3>Technical</h3><ul>
+    <li>Validate on a human-labelled test set before launch.</li>
+    <li>Report selection-rate ratios and error rates by group.</li>
+    <li>Run adversarial and injection tests.</li>
+    <li>Log every score with its rationale.</li>
+  </ul></div>
+  <div class="col"><h3>Procedural</h3><ul>
+    <li>Keep the system advisory, with no auto-reject.</li>
+    <li>Show recruiters why a score was given.</li>
+    <li>Audit a random sample of rejections regularly.</li>
+    <li>Tell candidates AI is used and let them request human review.</li>
+  </ul></div>
+  <div class="col"><h3>Organisational</h3><ul>
+    <li>Name a system owner with a clear RACI.</li>
+    <li>Hold periodic governance reviews.</li>
+    <li>Agree rollback triggers in advance, such as a selection-rate ratio falling below the set threshold.</li>
+    <li>Run an incident and flagging process for questionable scores.</li>
+  </ul></div>
+</div>
+<p>I would roll out in stages: shadow mode first, then a pilot on a few roles, then wider use. Each stage has an exit criterion that must be met before the next begins.</p>
+
+<h2>Who I would involve</h2>
+<div class="scroll" tabindex="0" role="region" aria-label="Stakeholder involvement table, scrolls sideways on small screens">
+<table>
+  <thead><tr><th>Function</th><th>What they contribute</th></tr></thead>
+  <tbody>
+    <tr><td>HR and recruiters</td><td>How scores are really used in the workflow.</td></tr>
+    <tr><td>Hiring managers</td><td>A clear definition of “qualified” for each role.</td></tr>
+    <tr><td>Data science or vendor</td><td>Model behaviour and validation evidence.</td></tr>
+    <tr><td>Legal and compliance</td><td>Classification, anti-discrimination law, candidate notices.</td></tr>
+    <tr><td>Privacy or data protection</td><td>Data minimisation, retention and cross-border handling.</td></tr>
+    <tr><td>Security</td><td>Testing for manipulation and injection.</td></tr>
+    <tr><td>DEI or employee voice</td><td>A fairness lens and the candidate experience.</td></tr>
+    <tr><td>Internal audit</td><td>Independent assurance after launch.</td></tr>
+    <tr><td>Executive sponsor</td><td>Accountability for the final go or no-go decision.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="verdict">
+<h2>My recommendation</h2>
+<p>A conditional go. Start in shadow mode and keep the tool advisory, with bias testing and human review of rejections. Move to wider use only if it meets fairness and accuracy thresholds agreed in advance, and only with a named owner and defined rollback triggers.</p>
+</div>
+
+<p class="src">Regulatory position as of October 2026. Sources: <a href="https://www.mondaq.com/eu-digital-omnibus-on-ai-enters-into-force/1825722">K&amp;L Gates on the Digital Omnibus entering into force</a> and <a href="https://ogletree.com/insights-resources/blog-posts/eu-nears-approval-of-agreement-to-delay-rules-for-ai-use-in-employment-decisions/">Ogletree Deakins on employment AI under the AI Act</a>. This is a case study for discussion and not legal advice.</p>
+</main>
+</body>
+</html>
