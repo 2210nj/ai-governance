@@ -7,4 +7,4 @@
 
 [Case Study - Assessing an AI resume-grading system](06-projects/01-ai-technology-classification/AI_Resume_Grading_System.html)
 
-<h1> HI </h1>
+
