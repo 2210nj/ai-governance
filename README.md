@@ -2,10 +2,10 @@
 
 <!-- [AI vs ML vs Deep Learning](01-ai-fundamentals/01-ai-vs-ml-vs-dl/README.md) 
 
-[AI Technology classification](06-projects/01-ai-technology-classification/README.md) -->
+[AI Technology classification](06-projects/01-ai-technology-classification/README.md)
 
 
-[Case Study - Assessing an AI resume-grading system](06-projects/01-ai-technology-classification/AI_Resume_Grading_System.html)
+[Case Study - Assessing an AI resume-grading system](06-projects/01-ai-technology-classification/AI_Resume_Grading_System.html)  -->
 
 # Namita Jadhav - AI Governance & Responsible AI Portfolio
 
