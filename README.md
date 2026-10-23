@@ -9,7 +9,7 @@
 
 # Namita Jadhav - AI Governance & Responsible AI Portfolio
 
-**[RESUME](06-projects/01-ai-technology-classification/AI_Governance_to_Engineering_Controls.pdf)**
+**[RESUME](07-resume/Namita_Jadhav_AI_Governance.pdf)**
 
 ### Translating AI Governance Principles into Practical, Implementable Controls
 
