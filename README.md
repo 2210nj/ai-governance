@@ -10,7 +10,7 @@
 # Namita Jadhav - AI Governance & Responsible AI Portfolio
 
 **[RESUME](07-resume/Namita_Jadhav_AI_Governance.pdf)**
-**[LINKEDIN] (linkedin.com/in/namitajadhav)
+**[LINKEDIN](https://www.linkedin.com/in/namitajadhav/)**
 
 ### Translating AI Governance Principles into Practical, Implementable Controls
 
@@ -154,7 +154,7 @@ I am interested in connecting with professionals working in AI Governance, Respo
 I welcome opportunities to exchange ideas, learn from practitioners, and contribute to initiatives focused on the responsible adoption of AI.
 
 - **Email:** 2210nj@gmail.com
-- **LinkedIn:** [linkedin.com/in/namitajadhav](#)
+- **LinkedIn:** (https://www.linkedin.com/in/namitajadhav/)
 - **Location:** Thane, India (open to remote)
 
 ---
