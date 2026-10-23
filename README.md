@@ -9,6 +9,8 @@
 
 # Namita Jadhav - AI Governance & Responsible AI Portfolio
 
+**[RESUME](06-projects/01-ai-technology-classification/AI_Governance_to_Engineering_Controls.pdf)**
+
 ### Translating AI Governance Principles into Practical, Implementable Controls
 
 I am a technology and delivery professional with **12+ years of experience** across software development, Agile delivery, account management, and PMO. Throughout my career, I have worked at the intersection of technology, business objectives, stakeholder management, and operational execution.
